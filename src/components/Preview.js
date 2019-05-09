@@ -1,6 +1,6 @@
 import React from 'react'
-import { HCPreviewWrapper, PreviewHeader, PreviewCard, PreviewLine as StyledPreviewLine, PreviewLineLabel, PreviewLineValue } from './HCPreview.styles'
-import { Columns, Column } from './HCLayout.styles'
+import { PreviewWrapper, PreviewHeader, PreviewCard, PreviewLine as StyledPreviewLine, PreviewLineLabel, PreviewLineValue } from './Preview.styles'
+import { Columns, Column } from './Layout.styles'
 
 const createFieldValueGetter = (values) =>
   (fieldName) => values[fieldName]
@@ -16,10 +16,10 @@ const PreviewLine = (props) =>
     }
   </StyledPreviewLine>
 
-const HCPreview = ({ fields, values }) => {
+const Preview = ({ fields, values }) => {
   const getValue = createFieldValueGetter(values)
   return (
-    <HCPreviewWrapper className='vcard'>
+    <PreviewWrapper className='vcard'>
       <PreviewHeader>
         &#8203;
         <span className='fn' title='Full name'>{getValue('givenName')} {getValue('surname')}</span>
@@ -52,8 +52,8 @@ const HCPreview = ({ fields, values }) => {
           </Columns>
         </div>
       </PreviewCard>
-    </HCPreviewWrapper>
+    </PreviewWrapper>
   )
 }
 
-export default HCPreview
+export default Preview

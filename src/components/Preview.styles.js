@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { COLOR_PRIMARY, FONT_FAMILY_SERIF } from '../config/styles'
 
-export const HCPreviewWrapper = styled.div`
+export const PreviewWrapper = styled.div`
   background: #fff;
 `
 export const PreviewHeader = styled.div`

@@ -1,23 +1,23 @@
 import React from 'react'
 import { render, fireEvent, cleanup, wait } from 'react-testing-library'
-import HCApp from '../containers/HCApp'
+import App from '../containers/App'
 
 // automatically unmount and cleanup DOM after the test is finished.
 afterEach(cleanup)
 
-test('HCPreview to be blank on initial render', () => {
+test('Preview to be blank on initial render', () => {
   const { queryByTitle } = render(
-    <HCApp />
+    <App />
   )
 
   expect(queryByTitle(/Full name/i).textContent.trim()).toBeFalsy()
 })
 
-test('HCPreview is updated as fields are changed', () => {
+test('Preview is updated as fields are changed', () => {
   const expectedGivenName = 'John'
   const expectedSurname = 'Appleseed'
   const { getByLabelText, queryByTitle } = render(
-    <HCApp />
+    <App />
   )
 
   fireEvent.change(getByLabelText(/Given Name/i), { target: {
@@ -31,9 +31,9 @@ test('HCPreview is updated as fields are changed', () => {
   expect(queryByTitle(/Full name/i).textContent).toEqual(expectedGivenName + ' ' + expectedSurname)
 })
 
-test('HCPreview avatar preview is updated when file selected', async () => {
+test('Preview avatar preview is updated when file selected', async () => {
   const { getByLabelText, getByAltText } = render(
-    <HCApp />
+    <App />
   )
 
   const file = new File(['(ツ)'], 'john.png', { type: 'image/jpg' })

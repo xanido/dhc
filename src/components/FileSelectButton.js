@@ -1,7 +1,7 @@
 import React from 'react'
-import { HCField } from './HCFileSelectButton.styles'
+import { Field } from './FileSelectButton.styles'
 
-const HCFileSelectButton = (props) => {
+const FileSelectButton = (props) => {
   const valueExtractor = (event) => event.target.files
   const onInputChange = (field, value) => {
     const reader = new FileReader()
@@ -14,7 +14,7 @@ const HCFileSelectButton = (props) => {
   }
 
   return (
-    <HCField
+    <Field
       {...props}
       {...{ valueExtractor, onInputChange }}
       labelAfter
@@ -22,4 +22,4 @@ const HCFileSelectButton = (props) => {
   )
 }
 
-export default HCFileSelectButton
+export default FileSelectButton

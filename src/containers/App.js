@@ -1,17 +1,17 @@
 import { hot } from 'react-hot-loader/root'
 import React from 'react'
-import HCFileSelectButton from '../components/HCFileSelectButton'
-import HCFieldset from '../components/HCFieldset'
-import HCPreview from '../components/HCPreview'
+import FileSelectButton from '../components/FileSelectButton'
+import Fieldset from '../components/Fieldset'
+import Preview from '../components/Preview'
 import schema from '../forms/hcard'
 import { getFieldsets, filterFields, getAllFields } from '../forms/utils'
 import { mapKeys, mapValues } from 'lodash'
 import { Global } from '@emotion/core'
-import { AppTitle, AppContainer, GlobalStyles, Pane, FormPane, PreviewPane, PaneContent } from './HCApp.styles'
-import { Button } from '../components/HCButton.styles'
-import { Columns, Column } from '../components/HCLayout'
+import { AppTitle, AppContainer, GlobalStyles, Pane, FormPane, PreviewPane, PaneContent } from './App.styles'
+import { Button } from '../components/Button.styles'
+import { Columns, Column } from '../components/Layout'
 
-class HCApp extends React.Component {
+class App extends React.Component {
   constructor (props) {
     super(props)
 
@@ -46,7 +46,7 @@ class HCApp extends React.Component {
             <PaneContent>
               <AppTitle>hCard Builder</AppTitle>
               {getFieldsets(schema).map(fieldset =>
-                <HCFieldset
+                <Fieldset
                   legend={fieldset.label}
                   fields={fieldset.fields}
                   values={this.state.fields}
@@ -56,7 +56,7 @@ class HCApp extends React.Component {
               )}
               <Columns columns={2}>
                 <Column>
-                  <HCFileSelectButton
+                  <FileSelectButton
                     key={avatarField.name}
                     field={avatarField}
                     onInputChange={this.onInputChange}
@@ -73,7 +73,7 @@ class HCApp extends React.Component {
         <Column>
           <Pane css={PreviewPane}>
             <PaneContent>
-              <HCPreview
+              <Preview
                 fields={previewableFields}
                 values={this.state.fields}
               />
@@ -85,4 +85,4 @@ class HCApp extends React.Component {
   }
 }
 
-export default hot(HCApp)
+export default hot(App)

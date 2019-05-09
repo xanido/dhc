@@ -1,21 +1,21 @@
 import React from 'react'
-import HCField from './HCField'
-import { Fieldset, Legend } from './HCFieldset.styles'
-import { Columns, Column } from './HCLayout'
+import Field from './Field'
+import { Fieldset as StyledFieldset, Legend } from './Fieldset.styles'
+import { Columns, Column } from './Layout'
 
-const HCFieldset = ({
+const Fieldset = ({
   legend,
   fields,
   values,
   onInputChange
 }) => {
   return (
-    <Fieldset>
+    <StyledFieldset>
       <Legend>{legend}</Legend>
       <Columns columns={2}>
         {fields.map(field => (
           <Column key={field.name}>
-            <HCField
+            <Field
               field={field}
               value={values[field.name]}
               onInputChange={onInputChange}
@@ -23,8 +23,8 @@ const HCFieldset = ({
           </Column>
         ))}
       </Columns>
-    </Fieldset>
+    </StyledFieldset>
   )
 }
 
-export default HCFieldset
+export default Fieldset

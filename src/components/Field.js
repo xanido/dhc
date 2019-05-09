@@ -1,7 +1,7 @@
 import React from 'react'
-import { FieldWrapper, Label, Input } from './HCField.styles'
+import { FieldWrapper, Label, Input } from './Field.styles'
 
-const HCField = ({ className, field, value, onInputChange, valueExtractor, labelAfter }) => {
+const Field = ({ className, field, value, onInputChange, valueExtractor, labelAfter }) => {
   const label = (
     <Label
       htmlFor={field.name}
@@ -33,8 +33,8 @@ const HCField = ({ className, field, value, onInputChange, valueExtractor, label
   )
 }
 
-HCField.defaultProps = {
+Field.defaultProps = {
   valueExtractor: (event) => event.target.value
 }
 
-export default HCField
+export default Field

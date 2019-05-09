@@ -1,10 +1,10 @@
 import styled from '@emotion/styled'
-import VanillaHCField from './HCField'
-import { Label, Input } from './HCField.styles'
+import VanillaField from './Field'
+import { Label, Input } from './Field.styles'
 import { COLOR_MUTED } from '../config/styles'
-import { buttonStyles } from './HCButton'
+import { buttonStyles } from './Button'
 
-export const HCField = styled(VanillaHCField)`
+export const Field = styled(VanillaField)`
   > ${Input} {
     width: 0.1px;
     height: 0.1px;

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
-import { Column, Columns } from '../components/HCLayout'
+import { Column, Columns } from '../components/Layout'
 import { FONT_FAMILY_SANS_SERIF, COLOR_PRIMARY, BREAKPOINT } from '../config/styles'
 
 export const GlobalStyles = css`

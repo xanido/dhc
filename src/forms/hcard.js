@@ -1,4 +1,4 @@
-const hcardSchema = [
+const ardSchema = [
   {
     name: 'personalDetails',
     label: 'Personal Details',
@@ -71,4 +71,4 @@ const hcardSchema = [
   }
 ]
 
-export default hcardSchema
+export default ardSchema
