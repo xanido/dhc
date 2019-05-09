@@ -16,7 +16,7 @@ const PreviewLine = (props) =>
     }
   </StyledPreviewLine>
 
-const Preview = ({ fields, values }) => {
+const Preview = ({ values }) => {
   const getValue = createFieldValueGetter(values)
   return (
     <PreviewWrapper className='vcard'>
