@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import VanillaHCField from './HCField'
 import { Label, Input } from './HCField.styles'
-import { COLOR_MUTED } from '../containers/HCApp.styles'
+import { COLOR_MUTED } from '../config/styles'
 import { buttonStyles } from './HCButton'
 
 export const HCField = styled(VanillaHCField)`

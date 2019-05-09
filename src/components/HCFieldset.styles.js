@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { COLOR_LIGHT } from '../containers/HCApp.styles'
+import { COLOR_LIGHT } from '../config/styles'
 
 export const Fieldset = styled.fieldset`
     border: 0;

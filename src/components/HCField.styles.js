@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { FONT_FAMILY_SERIF } from '../containers/HCApp.styles'
+import { FONT_FAMILY_SERIF } from '../config/styles'
 
 export const FieldWrapper = styled.div`
   margin-bottom: 10px;

@@ -1,7 +1,7 @@
 import React from 'react'
 import HCField from './HCField'
 import { Fieldset, Legend } from './HCFieldset.styles'
-import { Row, Column } from './HCLayout'
+import { Columns, Column } from './HCLayout'
 
 const HCFieldset = ({
   legend,
@@ -12,7 +12,7 @@ const HCFieldset = ({
   return (
     <Fieldset>
       <Legend>{legend}</Legend>
-      <Row columns={2}>
+      <Columns columns={2}>
         {fields.map(field => (
           <Column key={field.name}>
             <HCField
@@ -22,7 +22,7 @@ const HCFieldset = ({
             />
           </Column>
         ))}
-      </Row>
+      </Columns>
     </Fieldset>
   )
 }

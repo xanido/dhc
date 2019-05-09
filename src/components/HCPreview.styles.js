@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { COLOR_PRIMARY, FONT_FAMILY_SERIF } from '../containers/HCApp.styles'
+import { COLOR_PRIMARY, FONT_FAMILY_SERIF } from '../config/styles'
 
 export const HCPreviewWrapper = styled.div`
   background: #fff;

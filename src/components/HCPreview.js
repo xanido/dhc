@@ -1,6 +1,6 @@
 import React from 'react'
 import { HCPreviewWrapper, PreviewHeader, PreviewCard, PreviewLine as StyledPreviewLine, PreviewLineLabel, PreviewLineValue } from './HCPreview.styles'
-import { Row, Column } from './HCLayout.styles'
+import { Columns, Column } from './HCLayout.styles'
 
 const createFieldValueGetter = (values) =>
   (fieldName) => values[fieldName]
@@ -42,14 +42,14 @@ const HCPreview = ({ fields, values }) => {
               <span className='region'>{getValue('addressState')}</span>
             </PreviewLineValue>
           </PreviewLine>
-          <Row columns={2} gutter={0}>
+          <Columns columns={2} gutter={0}>
             <Column>
               <PreviewLine className='postal-code' label='Postcode' value={getValue('addressPostcode')} />
             </Column>
             <Column>
               <PreviewLine className='country-name' label='Country' value={getValue('addressCountry')} />
             </Column>
-          </Row>
+          </Columns>
         </div>
       </PreviewCard>
     </HCPreviewWrapper>

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { COLOR_ACCENT, FONT_FAMILY_SANS_SERIF } from '../containers/HCApp.styles'
+import { COLOR_ACCENT, FONT_FAMILY_SANS_SERIF } from '../config/styles'
 import { css } from '@emotion/core'
 import Color from 'color'
 

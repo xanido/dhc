@@ -9,7 +9,7 @@ import { mapKeys, mapValues } from 'lodash'
 import { Global } from '@emotion/core'
 import { AppTitle, AppContainer, GlobalStyles, Pane, FormPane, PreviewPane, PaneContent } from './HCApp.styles'
 import { Button } from '../components/HCButton.styles'
-import { Row, Column } from '../components/HCLayout'
+import { Columns, Column } from '../components/HCLayout'
 
 class HCApp extends React.Component {
   constructor (props) {
@@ -41,41 +41,45 @@ class HCApp extends React.Component {
     return (
       <AppContainer>
         <Global styles={GlobalStyles} />
-        <Pane css={FormPane}>
-          <PaneContent>
-            <AppTitle>hCard Builder</AppTitle>
-            {getFieldsets(schema).map(fieldset =>
-              <HCFieldset
-                legend={fieldset.label}
-                fields={fieldset.fields}
-                values={this.state.fields}
-                onInputChange={this.onInputChange}
-                key={fieldset.label}
-              />
-            )}
-            <Row columns={2}>
-              <Column>
-                <HCFileSelectButton
-                  key={avatarField.name}
-                  field={avatarField}
+        <Column>
+          <Pane css={FormPane}>
+            <PaneContent>
+              <AppTitle>hCard Builder</AppTitle>
+              {getFieldsets(schema).map(fieldset =>
+                <HCFieldset
+                  legend={fieldset.label}
+                  fields={fieldset.fields}
+                  values={this.state.fields}
                   onInputChange={this.onInputChange}
+                  key={fieldset.label}
                 />
-              </Column>
-              <Column>
-                <Button width='100%'>Create hCard</Button>
-              </Column>
-            </Row>
-          </PaneContent>
-        </Pane>
+              )}
+              <Columns columns={2}>
+                <Column>
+                  <HCFileSelectButton
+                    key={avatarField.name}
+                    field={avatarField}
+                    onInputChange={this.onInputChange}
+                  />
+                </Column>
+                <Column>
+                  <Button width='100%'>Create hCard</Button>
+                </Column>
+              </Columns>
+            </PaneContent>
+          </Pane>
+        </Column>
 
-        <Pane css={PreviewPane}>
-          <PaneContent>
-            <HCPreview
-              fields={previewableFields}
-              values={this.state.fields}
-            />
-          </PaneContent>
-        </Pane>
+        <Column>
+          <Pane css={PreviewPane}>
+            <PaneContent>
+              <HCPreview
+                fields={previewableFields}
+                values={this.state.fields}
+              />
+            </PaneContent>
+          </Pane>
+        </Column>
       </AppContainer>
     )
   }
