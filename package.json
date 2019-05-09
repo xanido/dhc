@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "dev": "webpack-dev-server --content-base=build --hot --mode=development",
-    "build": "webpack --mode=production"
+    "build": "webpack --mode=production",
+    "lint": "eslint --fix"
   },
   "author": "Timothy Anido",
   "license": "UNLICENSED",
@@ -15,8 +16,10 @@
     "@babel/core": "^7.4.4",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
+    "@types/jest": "^24.0.12",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.5",
@@ -32,6 +35,7 @@
     "jest": "^24.8.0",
     "lint-staged": "^8.1.6",
     "react-hot-loader": "^4.8.4",
+    "react-testing-library": "^7.0.0",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.3.1"

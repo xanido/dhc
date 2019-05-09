@@ -5,11 +5,11 @@ const HCPreview = ({ fields, values }) => (
     {fields.map(field => (
       <div key={field.name}>
         <h5>{field.label}</h5>
-        <p>{values[field.name]}</p>
+        <p data-testid={`preview-${field.name}`}>{values[field.name]}</p>
       </div>
     ))}
     <div>
-      <img src={values['avatar']} />
+      <img src={values['avatar']} data-testid='preview-avatar' />
     </div>
   </div>
 )
