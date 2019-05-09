@@ -2,14 +2,15 @@
   "name": "dhc",
   "version": "1.0.0",
   "description": "Domain hCard Builder",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "jest",
     "dev": "webpack-dev-server --content-base=build --hot --mode=development",
     "build": "webpack --mode=production"
   },
   "author": "Timothy Anido",
-  "license": "ISC",
+  "license": "UNLICENSED",
+  "private": true,
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
@@ -27,7 +28,9 @@
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-react": "^7.13.0",
     "eslint-plugin-standard": "^4.0.0",
+    "husky": "^2.2.0",
     "jest": "^24.8.0",
+    "lint-staged": "^8.1.6",
     "react-hot-loader": "^4.8.4",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.2",
@@ -37,5 +40,17 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "lodash": "^4.17.11"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add",
+      "jest --bail --findRelatedTests"
+    ]
   }
 }
