@@ -12,6 +12,7 @@ const HCFieldset = ({
       <legend>{legend}</legend>
       {fields.map(field => (
         <HCField
+          key={field.name}
           field={field}
           value={values[field.name]}
           onInputChange={onInputChange}

@@ -5,13 +5,14 @@ const HCField = ({ field, value, onInputChange }) => {
 
   return (
     <React.Fragment>
-      <label>{field.label}</label>
+      <label htmlFor={field.name}>{field.label}</label>
       <input
         ref={(node) => {
           input = node
         }}
         type={field.type}
         name={field.name}
+        id={field.name}
         value={value}
         onChange={() => onInputChange(field, input.value)}
       />

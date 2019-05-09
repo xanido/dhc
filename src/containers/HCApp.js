@@ -7,8 +7,8 @@ import { getFieldsets, filterFields, getAllFields } from '../forms/utils'
 import { mapKeys, mapValues } from 'lodash'
 
 class HCApp extends React.Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
 
     const fieldsKeyedByName = mapKeys(getAllFields(schema), (val, key) => val.name)
     const fieldsDefaultVals = mapValues(fieldsKeyedByName, (val, key) => '')
@@ -51,12 +51,15 @@ class HCApp extends React.Component {
             fields={fieldset.fields}
             values={this.state.fields}
             onInputChange={this.onInputChange}
+            key={fieldset.label}
           />
         )}
 
+        <label htmlFor={avatarField.name}>Upload Avatar</label>
         <input
           type='file'
-          name='avatar'
+          name={avatarField.name}
+          id={avatarField.name}
           onChange={event => this.onFileChange(avatarField, event.target)}
         />
 
