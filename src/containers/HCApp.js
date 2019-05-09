@@ -1,10 +1,15 @@
 import { hot } from 'react-hot-loader/root'
 import React from 'react'
+import HCFileSelectButton from '../components/HCFileSelectButton'
 import HCFieldset from '../components/HCFieldset'
 import HCPreview from '../components/HCPreview'
 import schema from '../forms/hcard'
 import { getFieldsets, filterFields, getAllFields } from '../forms/utils'
 import { mapKeys, mapValues } from 'lodash'
+import { Global } from '@emotion/core'
+import { AppTitle, AppContainer, GlobalStyles, Pane, FormPane, PreviewPane, PaneContent } from './HCApp.styles'
+import { Button } from '../components/HCButton.styles'
+import { Row, Column } from '../components/HCLayout'
 
 class HCApp extends React.Component {
   constructor (props) {
@@ -27,16 +32,6 @@ class HCApp extends React.Component {
     })
   }
 
-  onFileChange = (field, input) => {
-    const reader = new FileReader()
-    const file = input.files[0]
-
-    reader.onloadend = () => {
-      this.onInputChange(field, reader.result)
-    }
-    reader.readAsDataURL(file)
-  }
-
   render () {
     const avatarField = filterFields(schema, { name: 'avatar' })[0]
     const previewableFields = filterFields(schema, field =>
@@ -44,30 +39,44 @@ class HCApp extends React.Component {
     )
 
     return (
-      <div>
-        {getFieldsets(schema).map(fieldset =>
-          <HCFieldset
-            legend={fieldset.label}
-            fields={fieldset.fields}
-            values={this.state.fields}
-            onInputChange={this.onInputChange}
-            key={fieldset.label}
-          />
-        )}
+      <AppContainer>
+        <Global styles={GlobalStyles} />
+        <Pane css={FormPane}>
+          <PaneContent>
+            <AppTitle>hCard Builder</AppTitle>
+            {getFieldsets(schema).map(fieldset =>
+              <HCFieldset
+                legend={fieldset.label}
+                fields={fieldset.fields}
+                values={this.state.fields}
+                onInputChange={this.onInputChange}
+                key={fieldset.label}
+              />
+            )}
+            <Row columns={2}>
+              <Column>
+                <HCFileSelectButton
+                  key={avatarField.name}
+                  field={avatarField}
+                  onInputChange={this.onInputChange}
+                />
+              </Column>
+              <Column>
+                <Button width='100%'>Create hCard</Button>
+              </Column>
+            </Row>
+          </PaneContent>
+        </Pane>
 
-        <label htmlFor={avatarField.name}>Upload Avatar</label>
-        <input
-          type='file'
-          name={avatarField.name}
-          id={avatarField.name}
-          onChange={event => this.onFileChange(avatarField, event.target)}
-        />
-
-        <HCPreview
-          fields={previewableFields}
-          values={this.state.fields}
-        />
-      </div>
+        <Pane css={PreviewPane}>
+          <PaneContent>
+            <HCPreview
+              fields={previewableFields}
+              values={this.state.fields}
+            />
+          </PaneContent>
+        </Pane>
+      </AppContainer>
     )
   }
 }

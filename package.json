@@ -19,6 +19,7 @@
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
+    "@emotion/babel-preset-css-prop": "^10.0.9",
     "@types/jest": "^24.0.12",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.8.0",
@@ -41,9 +42,12 @@
     "webpack-dev-server": "^3.3.1"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.10",
+    "@emotion/styled": "^10.0.11",
+    "color": "^3.1.1",
+    "lodash": "^4.17.11",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "lodash": "^4.17.11"
+    "react-dom": "^16.8.6"
   },
   "husky": {
     "hooks": {
