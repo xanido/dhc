@@ -13,6 +13,10 @@
     # run the tests
     npm test
 
+### Preview URL
+
+https://xanido.github.io/dhc
+
 ### Notes
 
 * I chose not to implement Redux for this exercise, as the state is straightforward enough to manage, and the app is shallow enough that passing state & mutators down to child components is simple and obvious.
@@ -21,3 +25,4 @@
 * There is a basic integration test to confirm that data appears in the preview - checks a text field and the image field.
 * The form is defined by a naive form schema. There are unit tests for the schema tools. Could have used a library for this but again, wanted to use as few deps as possible for this simple application. In a real-world scenario this solutions is obviously frail :P
 * There is no validation; simple app, limited feature set..
+* Comes with an example server to demo SSR functionality. SSR server can be started with `npm start`
