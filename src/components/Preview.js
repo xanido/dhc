@@ -1,6 +1,7 @@
 import React from 'react'
-import { PreviewWrapper, PreviewHeader, PreviewCard, PreviewLine as StyledPreviewLine, PreviewLineLabel, PreviewLineValue } from './Preview.styles'
+import { PreviewWrapper, PreviewTitle, PreviewHeader, PreviewCard, PreviewLine as StyledPreviewLine, PreviewLineLabel, PreviewLineValue } from './Preview.styles'
 import { Columns, Column } from './Layout.styles'
+import defaultAvatar from '../assets/default-avatar.png'
 
 const createFieldValueGetter = (values) =>
   (fieldName) => values[fieldName]
@@ -20,12 +21,13 @@ const Preview = ({ values }) => {
   const getValue = createFieldValueGetter(values)
   return (
     <PreviewWrapper className='vcard'>
+      <PreviewTitle>
+        hCard Preview
+      </PreviewTitle>
       <PreviewHeader>
         &#8203;
         <span className='fn' title='Full name'>{getValue('givenName')} {getValue('surname')}</span>
-        {getValue('avatar') &&
-          <img src={getValue('avatar')} alt='Avatar preview' />
-        }
+        <img src={getValue('avatar') || defaultAvatar} alt='Avatar preview' />
       </PreviewHeader>
       <PreviewCard>
         <PreviewLine className='email' label='Email' value={getValue('email')} />

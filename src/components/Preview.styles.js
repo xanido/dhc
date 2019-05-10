@@ -2,8 +2,18 @@ import styled from '@emotion/styled'
 import { COLOR_PRIMARY, FONT_FAMILY_SERIF } from '../config/styles'
 
 export const PreviewWrapper = styled.div`
-  background: #fff;
+  
 `
+
+export const PreviewTitle = styled.h2`
+  text-transform: uppercase;
+  opacity: 0.3;
+  font-size: 16px;
+  text-align: right;
+  font-weight: normal;
+  margin-bottom: 8px;
+`
+
 export const PreviewHeader = styled.div`
   font-size: 30px;
   background: ${COLOR_PRIMARY};
@@ -29,6 +39,8 @@ export const PreviewHeader = styled.div`
 
 export const PreviewCard = styled.div`
   padding: 20px;
+  background: #fff;
+  border-bottom: 2px solid #9a9a9a;
 `
 
 export const PreviewLine = styled.div`
